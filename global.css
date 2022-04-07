@@ -156,6 +156,10 @@ select {
 /* ------------------- */
 /* Components          */
 /* ------------------- */
+.title {
+  margin-block: 1rem;
+}
+
 .testimonials-grid {
   display: grid;
   gap: 1.5rem;
@@ -166,7 +170,7 @@ select {
     "three"
     "four"
     "five";
-  padding-block: 4.5rem;
+  padding-block: 3.5rem;
   margin-inline: 1.5rem;
   width: min(90%, 70rem);
 }
@@ -263,4 +267,5 @@ select {
 .attribution {
   font-size: var(--fs-300);
   text-align: center;
+  margin-block: 1rem;
 }
