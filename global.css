@@ -227,7 +227,7 @@ select {
 
 .testimonial {
   padding: 2rem;
-  box-shadow: 40px 60px 50px -47px hsl(var(--clr-violet-400) / 0.247378);
+  box-shadow: 40px 60px 50px -47px hsl(var(--clr-blue-400) / 0.25);
   border-radius: 8px;
 }
 
