@@ -157,6 +157,7 @@ select {
 /* Components          */
 /* ------------------- */
 .title {
+  text-align: center;
   margin-block: 1rem;
 }
 
