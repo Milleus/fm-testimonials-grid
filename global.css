@@ -112,7 +112,7 @@ h3 {
 }
 
 /* ------------------- */
-/* Utilities classes   */
+/* Composition         */
 /* ------------------- */
 .flex {
   display: flex;
@@ -123,6 +123,9 @@ h3 {
   margin-top: var(--space, 1rem);
 }
 
+/* ------------------- */
+/* Utility             */
+/* ------------------- */
 .bg-violet-400 {
   background-color: hsl(var(--clr-violet-400));
 }
@@ -160,7 +163,7 @@ h3 {
 }
 
 /* ------------------- */
-/* Components          */
+/* Block               */
 /* ------------------- */
 .title {
   text-align: center;
