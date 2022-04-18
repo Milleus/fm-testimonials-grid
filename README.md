@@ -40,7 +40,7 @@ Mobile view
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/testimonials-grid-section-BkGUsCs75](https://www.frontendmentor.io/solutions/testimonials-grid-section-BkGUsCs75)
-- Live Site URL: [https://testimonials-grid.davequah.com/](https://testimonials-grid.davequah.com/)
+- Live Site URL: [https://Milleus.github.io/fm-testimonials-grid/](https://Milleus.github.io/fm-testimonials-grid/)
 
 ## My process
 
