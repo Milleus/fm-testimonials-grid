@@ -61,8 +61,6 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  display: grid;
-  place-items: center;
   font-size: var(--fs-400);
   font-family: var(--ff-sans-cond);
   font-weight: var(--fw-500);
@@ -116,7 +114,12 @@ h3 {
 /* ------------------- */
 .flex {
   display: flex;
-  gap: var(--gap, 1rem);
+  gap: var(--flex-gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap, 1rem);
 }
 
 .space-y > *:where(:not(:first-child)) {
@@ -126,6 +129,18 @@ h3 {
 /* ------------------- */
 /* Utility             */
 /* ------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .bg-violet-400 {
   background-color: hsl(var(--clr-violet-400));
 }
@@ -162,17 +177,36 @@ h3 {
   border: 2px solid hsl(var(--clr-violet-300));
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* ------------------- */
 /* Block               */
 /* ------------------- */
-.title {
-  text-align: center;
-  margin-block: 1rem;
+.container {
+  place-items: center;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  min-height: 100vh;
+  min-width: fit-content;
+  padding: 1rem 1.5rem;
 }
 
-.testimonials-grid {
-  display: grid;
-  gap: 1.5rem;
+.container > main {
+  grid-area: main;
+}
+
+.container > footer {
+  grid-area: footer;
+  align-self: end;
+}
+
+section.testimonials {
+  --grid-gap: 1.5rem;
   grid-auto-columns: 1fr;
   grid-template-areas:
     "one"
@@ -180,36 +214,35 @@ h3 {
     "three"
     "four"
     "five";
-  padding-block: 3.5rem;
-  margin-inline: 1.5rem;
   width: min(90%, 70rem);
+  margin-inline: auto;
 }
 
-.testimonials-grid > .testimonial:nth-child(1) {
+section.testimonials > .testimonial:nth-child(1) {
   grid-area: one;
   background-image: url(/assets/bg-pattern-quotation.svg);
   background-repeat: no-repeat;
   background-position: top right 15%;
 }
 
-.testimonials-grid > .testimonial:nth-child(2) {
+section.testimonials > .testimonial:nth-child(2) {
   grid-area: two;
 }
 
-.testimonials-grid > .testimonial:nth-child(3) {
+section.testimonials > .testimonial:nth-child(3) {
   grid-area: three;
 }
 
-.testimonials-grid > .testimonial:nth-child(4) {
+section.testimonials > .testimonial:nth-child(4) {
   grid-area: four;
 }
 
-.testimonials-grid > .testimonial:nth-child(5) {
+section.testimonials > .testimonial:nth-child(5) {
   grid-area: five;
 }
 
 @media (min-width: 35em) {
-  .testimonials-grid {
+  section.testimonials {
     grid-template-areas:
       "one one"
       "two three"
@@ -219,7 +252,7 @@ h3 {
 }
 
 @media (min-width: 55em) {
-  .testimonials-grid {
+  section.testimonials {
     grid-template-areas:
       "one one two"
       "three four four"
@@ -228,7 +261,7 @@ h3 {
 }
 
 @media (min-width: 75em) {
-  .testimonials-grid {
+  section.testimonials {
     grid-template-areas:
       "one one two five"
       "three four four five";
@@ -273,10 +306,4 @@ h3 {
 
 .testimonial > p:last-of-type {
   opacity: 0.7;
-}
-
-.attribution {
-  font-size: var(--fs-300);
-  text-align: center;
-  margin-block: 1rem;
 }
